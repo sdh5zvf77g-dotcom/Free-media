@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+  <title>FreeWave — Free Media & TV</title>
+  <link rel="stylesheet" href="styles.css" />
+  <link rel="icon" href="icon.svg" type="image/svg+xml" />
+  <meta name="theme-color" content="#1a0a3c" />
+  <meta name="description" content="Discover free legal music, movies, TV, images, podcasts and audiobooks in one place." />
+</head>
+<body>
+  <div class="app">
+    <!-- Sidebar / Mobile Nav -->
+    <aside class="sidebar" id="sidebar">
+      <div class="logo-area">
+        <img src="icon.svg" alt="FreeWave" class="logo-icon" />
+        <div class="logo-text">
+          <span class="logo-name">FreeWave</span>
+          <span class="logo-tag">Free Media & TV</span>
+        </div>
+      </div>
+
+      <nav class="nav">
+        <button class="nav-item active" data-category="all">
+          <span class="nav-icon">✦</span> All
+        </button>
+        <button class="nav-item" data-category="freetv">
+          <span class="nav-icon">📺</span> Free TV
+        </button>
+        <button class="nav-item" data-category="movies">
+          <span class="nav-icon">🎬</span> Movies
+        </button>
+        <button class="nav-item" data-category="music">
+          <span class="nav-icon">🎵</span> Music
+        </button>
+        <button class="nav-item" data-category="podcasts">
+          <span class="nav-icon">🎙</span> Podcasts
+        </button>
+        <button class="nav-item" data-category="audiobooks">
+          <span class="nav-icon">📖</span> Audiobooks
+        </button>
+        <button class="nav-item" data-category="images">
+          <span class="nav-icon">🖼</span> Images
+        </button>
+        <button class="nav-item" data-category="favourites">
+          <span class="nav-icon">♥</span> Favourites
+        </button>
+      </nav>
+
+      <div class="sidebar-footer">
+        <p>Legal free sources only</p>
+      </div>
+    </aside>
+
+    <!-- Main Content -->
+    <main class="main">
+      <header class="topbar">
+        <button class="menu-btn" id="menuBtn" aria-label="Menu">☰</button>
+        <div class="search-wrap">
+          <input type="search" id="searchInput" placeholder="Search free media, TV channels, movies..." autocomplete="off" />
+          <button id="searchClear" class="search-clear" aria-label="Clear">×</button>
+        </div>
+        <div class="top-actions">
+          <button id="themeToggle" class="icon-btn" title="Toggle theme">◐</button>
+        </div>
+      </header>
+
+      <section class="hero" id="hero">
+        <h1>Free media. No subscriptions.</h1>
+        <p>Music • Movies • Free TV • Podcasts • Audiobooks • Images</p>
+      </section>
+
+      <section class="content">
+        <div class="section-header">
+          <h2 id="sectionTitle">All Free Media</h2>
+          <span id="resultCount" class="result-count"></span>
+        </div>
+
+        <div class="grid" id="mediaGrid">
+          <!-- Cards injected by JS -->
+        </div>
+
+        <div class="empty-state" id="emptyState" hidden>
+          <p>No results found</p>
+          <button id="resetSearch">Show all</button>
+        </div>
+      </section>
+    </main>
+  </div>
+
+  <!-- Toast -->
+  <div class="toast" id="toast" hidden></div>
+
+  <script src="app.js"></script>
+</body>
+</html>
