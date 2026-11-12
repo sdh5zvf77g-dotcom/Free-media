@@ -1,287 +1,364 @@
-// FreeWave — Free Media & TV Prototype
+// FreeWave v2 — More actually playable content
 // Legal free sources only
 
 const mediaData = [
-  // ========== FREE TV ==========
+  // ========== PLAYABLE (in-app) ==========
+  {
+    id: "night-of-living-dead",
+    title: "Night of the Living Dead (1968)",
+    desc: "Classic public domain horror film. Full movie available to watch.",
+    category: "movies",
+    source: "Internet Archive",
+    url: "https://archive.org/details/night_of_the_living_dead",
+    embed: "https://archive.org/embed/night_of_the_living_dead",
+    type: "video",
+    icon: "🎬",
+    badge: "Playable",
+    playable: true
+  },
+  {
+    id: "plan-9",
+    title: "Plan 9 from Outer Space",
+    desc: "Ed Wood's famous public domain sci-fi classic. Full film.",
+    category: "movies",
+    source: "Internet Archive",
+    url: "https://archive.org/details/Plan9FromOuterSpace1959",
+    embed: "https://archive.org/embed/Plan9FromOuterSpace1959",
+    type: "video",
+    icon: "🎬",
+    badge: "Playable",
+    playable: true
+  },
+  {
+    id: "charade",
+    title: "Charade (1963)",
+    desc: "Cary Grant & Audrey Hepburn romantic thriller. Public domain in the US.",
+    category: "movies",
+    source: "Internet Archive",
+    url: "https://archive.org/details/charade_201405",
+    embed: "https://archive.org/embed/charade_201405",
+    type: "video",
+    icon: "🎬",
+    badge: "Playable",
+    playable: true
+  },
+  {
+    id: "his-girl-friday",
+    title: "His Girl Friday (1940)",
+    desc: "Fast-talking classic comedy with Cary Grant and Rosalind Russell.",
+    category: "movies",
+    source: "Internet Archive",
+    url: "https://archive.org/details/his_girl_friday",
+    embed: "https://archive.org/embed/his_girl_friday",
+    type: "video",
+    icon: "🎬",
+    badge: "Playable",
+    playable: true
+  },
+  {
+    id: "dnd-librivox",
+    title: "Dracula (LibriVox)",
+    desc: "Bram Stoker's classic, fully narrated. Free public domain audiobook.",
+    category: "audiobooks",
+    source: "LibriVox / Archive",
+    url: "https://archive.org/details/dracula_librivox",
+    audio: "https://archive.org/download/dracula_librivox/dracula_01_stoker.mp3",
+    type: "audio",
+    icon: "📖",
+    badge: "Playable",
+    playable: true
+  },
+  {
+    id: "sherlock-librivox",
+    title: "The Adventures of Sherlock Holmes",
+    desc: "Arthur Conan Doyle. Public domain audiobook, multiple stories.",
+    category: "audiobooks",
+    source: "LibriVox",
+    url: "https://librivox.org/the-adventures-of-sherlock-holmes-by-sir-arthur-conan-doyle/",
+    audio: "https://archive.org/download/adventures_holmes/adventure01_doyle.mp3",
+    type: "audio",
+    icon: "📖",
+    badge: "Playable",
+    playable: true
+  },
+  {
+    id: "pride-prejudice",
+    title: "Pride and Prejudice",
+    desc: "Jane Austen classic. Full public domain audiobook.",
+    category: "audiobooks",
+    source: "LibriVox",
+    url: "https://librivox.org/pride-and-prejudice-by-jane-austen/",
+    audio: "https://archive.org/download/pride_and_prejudice_1107_librivox/prideandprejudice_01_austen.mp3",
+    type: "audio",
+    icon: "📖",
+    badge: "Playable",
+    playable: true
+  },
+  {
+    id: "macleod-impact",
+    title: "Impact Moderato (Kevin MacLeod)",
+    desc: "Popular free music track. Clear Creative Commons license.",
+    category: "music",
+    source: "Incompetech",
+    url: "https://incompetech.com/music/royalty-free/index.html?isrc=USUAN1300024",
+    audio: "https://incompetech.com/music/royalty-free/mp3-royaltyfree/Impact%20Moderato.mp3",
+    type: "audio",
+    icon: "🎵",
+    badge: "Playable",
+    playable: true
+  },
+  {
+    id: "macleod-carefree",
+    title: "Carefree (Kevin MacLeod)",
+    desc: "Upbeat free music. Great for background listening.",
+    category: "music",
+    source: "Incompetech",
+    url: "https://incompetech.com/music/royalty-free/index.html?isrc=USUAN1400005",
+    audio: "https://incompetech.com/music/royalty-free/mp3-royaltyfree/Carefree.mp3",
+    type: "audio",
+    icon: "🎵",
+    badge: "Playable",
+    playable: true
+  },
+  {
+    id: "archive-jazz",
+    title: "Classic Jazz Collection",
+    desc: "Public domain jazz recordings from the Internet Archive.",
+    category: "music",
+    source: "Internet Archive",
+    url: "https://archive.org/details/Jazz",
+    type: "link",
+    icon: "🎵",
+    badge: "Collection",
+    playable: false
+  },
+
+  // ========== FREE TV (external — they block embedding) ==========
   {
     id: "pluto",
     title: "Pluto TV",
-    desc: "Hundreds of free live TV channels + on-demand movies & shows. No account needed.",
+    desc: "Hundreds of free live channels + on-demand. Best free live TV option.",
     category: "freetv",
     source: "Pluto TV",
     url: "https://pluto.tv",
+    type: "link",
     icon: "📺",
-    badge: "Live TV"
+    badge: "Opens in browser",
+    playable: false
   },
   {
     id: "tubi",
     title: "Tubi",
-    desc: "Huge library of free movies and TV shows with ads. Excellent selection.",
+    desc: "Massive free movie & TV library. Excellent selection of films.",
     category: "freetv",
     source: "Tubi",
     url: "https://tubitv.com",
+    type: "link",
     icon: "📺",
-    badge: "On Demand"
-  },
-  {
-    id: "freevee",
-    title: "Amazon Freevee",
-    desc: "Free movies, series and live channels from Amazon. Watch in browser or app.",
-    category: "freetv",
-    source: "Freevee",
-    url: "https://www.amazon.com/gp/video/storefront/ref=atv_hm_hom_c_c2a96b04_smh_1_0?contentType=home&contentId=home&pageTypeId=home",
-    icon: "📺",
-    badge: "Free"
+    badge: "Opens in browser",
+    playable: false
   },
   {
     id: "roku-channel",
     title: "The Roku Channel",
-    desc: "Free live channels, movies and TV shows. Available on web and many devices.",
+    desc: "Free live TV + movies & shows. Works well in browser.",
     category: "freetv",
     source: "Roku",
     url: "https://therokuchannel.roku.com",
+    type: "link",
     icon: "📺",
-    badge: "Live + VOD"
+    badge: "Opens in browser",
+    playable: false
   },
   {
     id: "plex-free",
-    title: "Plex Free Movies & TV",
-    desc: "Free ad-supported movies, shows and live TV. Great interface.",
+    title: "Plex Free",
+    desc: "Free movies, shows and live TV channels.",
     category: "freetv",
     source: "Plex",
     url: "https://www.plex.tv/watch-free/",
+    type: "link",
     icon: "📺",
-    badge: "Free"
-  },
-  {
-    id: "archive-tv",
-    title: "Internet Archive TV",
-    desc: "Classic TV shows, news broadcasts and public domain television content.",
-    category: "freetv",
-    source: "Archive.org",
-    url: "https://archive.org/details/television",
-    icon: "📼",
-    badge: "Classic"
+    badge: "Opens in browser",
+    playable: false
   },
   {
     id: "crackle",
     title: "Crackle",
-    desc: "Free movies and TV episodes. Sony-backed free streaming service.",
+    desc: "Sony free movies and TV episodes.",
     category: "freetv",
     source: "Crackle",
     url: "https://www.crackle.com",
+    type: "link",
     icon: "📺",
-    badge: "Free"
+    badge: "Opens in browser",
+    playable: false
+  },
+  {
+    id: "archive-tv",
+    title: "Internet Archive TV",
+    desc: "Classic TV shows, old broadcasts and public domain television.",
+    category: "freetv",
+    source: "Archive.org",
+    url: "https://archive.org/details/television",
+    type: "link",
+    icon: "📼",
+    badge: "Collection",
+    playable: false
   },
 
-  // ========== MOVIES ==========
+  // ========== MORE MOVIES (mostly external) ==========
   {
     id: "archive-movies",
     title: "Internet Archive Movies",
-    desc: "Thousands of public domain and freely available films. Classics, documentaries, indie.",
+    desc: "Thousands of public domain and free films. Best place for classic cinema.",
     category: "movies",
     source: "Archive.org",
     url: "https://archive.org/details/movies",
+    type: "link",
     icon: "🎬",
-    badge: "Public Domain"
+    badge: "Huge Library",
+    playable: false
   },
   {
     id: "publicdomainmovies",
     title: "Public Domain Movies",
-    desc: "Curated public domain feature films you can watch and download freely.",
+    desc: "Curated public domain feature films.",
     category: "movies",
     source: "Public Domain",
     url: "https://publicdomainmovie.net",
+    type: "link",
     icon: "🎬",
-    badge: "Free Download"
-  },
-  {
-    id: "youtube-movies",
-    title: "YouTube Free Movies",
-    desc: "Official free full-length movies on YouTube (search 'free movies' or use Movie channel).",
-    category: "movies",
-    source: "YouTube",
-    url: "https://www.youtube.com/results?search_query=full+free+movies",
-    icon: "🎬",
-    badge: "Free"
-  },
-  {
-    id: "vimeo-free",
-    title: "Vimeo Staff Picks & Free",
-    desc: "High quality free and Creative Commons films and short films.",
-    category: "movies",
-    source: "Vimeo",
-    url: "https://vimeo.com/channels/staffpicks",
-    icon: "🎬",
-    badge: "Creative"
+    badge: "Free",
+    playable: false
   },
 
-  // ========== MUSIC ==========
+  // ========== MUSIC (external collections) ==========
   {
     id: "freemusicarchive",
     title: "Free Music Archive",
-    desc: "High-quality free music from independent artists. Many Creative Commons tracks.",
+    desc: "Independent free music under Creative Commons.",
     category: "music",
     source: "FMA",
     url: "https://freemusicarchive.org",
+    type: "link",
     icon: "🎵",
-    badge: "CC Music"
-  },
-  {
-    id: "ccmixter",
-    title: "ccMixter",
-    desc: "Remixable Creative Commons music. Great for creators and listening.",
-    category: "music",
-    source: "ccMixter",
-    url: "http://ccmixter.org",
-    icon: "🎵",
-    badge: "Remix"
-  },
-  {
-    id: "incompetech",
-    title: "Incompetech",
-    desc: "Kevin MacLeod’s famous free music library. Huge variety, clear licenses.",
-    category: "music",
-    source: "Incompetech",
-    url: "https://incompetech.com/music/",
-    icon: "🎵",
-    badge: "Royalty Free"
-  },
-  {
-    id: "archive-audio",
-    title: "Internet Archive Audio",
-    desc: "Live concerts, old radio, classical, spoken word and free music collections.",
-    category: "music",
-    source: "Archive.org",
-    url: "https://archive.org/details/audio",
-    icon: "🎵",
-    badge: "Vast"
+    badge: "CC Music",
+    playable: false
   },
   {
     id: "jamendo",
     title: "Jamendo",
-    desc: "Independent artists offering free streaming and free downloads under CC licenses.",
+    desc: "Indie artists offering free streaming under free licenses.",
     category: "music",
     source: "Jamendo",
     url: "https://www.jamendo.com",
+    type: "link",
     icon: "🎵",
-    badge: "Indie"
-  },
-
-  // ========== PODCASTS ==========
-  {
-    id: "podcast-index",
-    title: "Podcast Index",
-    desc: "Open podcast directory. Discover free podcasts from across the open ecosystem.",
-    category: "podcasts",
-    source: "Podcast Index",
-    url: "https://podcastindex.org",
-    icon: "🎙",
-    badge: "Open"
+    badge: "Indie",
+    playable: false
   },
   {
-    id: "internet-archive-podcasts",
-    title: "Archive.org Podcasts & Radio",
-    desc: "Historic radio shows, lectures and free podcast-style content.",
-    category: "podcasts",
-    source: "Archive.org",
-    url: "https://archive.org/details/radio",
-    icon: "🎙",
-    badge: "Historic"
-  },
-  {
-    id: "spotify-free",
-    title: "Spotify Free Podcasts",
-    desc: "Huge free podcast catalogue (with free account). Excellent discovery.",
-    category: "podcasts",
-    source: "Spotify",
-    url: "https://open.spotify.com/genre/podcasts-web",
-    icon: "🎙",
-    badge: "Free Tier"
+    id: "incompetech",
+    title: "Incompetech (Kevin MacLeod)",
+    desc: "Huge library of free music with clear licenses.",
+    category: "music",
+    source: "Incompetech",
+    url: "https://incompetech.com/music/",
+    type: "link",
+    icon: "🎵",
+    badge: "Royalty Free",
+    playable: false
   },
 
   // ========== AUDIOBOOKS ==========
   {
     id: "librivox",
     title: "LibriVox",
-    desc: "Free public domain audiobooks read by volunteers. Thousands of classics.",
+    desc: "Thousands of free public domain audiobooks read by volunteers.",
     category: "audiobooks",
     source: "LibriVox",
     url: "https://librivox.org",
+    type: "link",
     icon: "📖",
-    badge: "Public Domain"
+    badge: "Public Domain",
+    playable: false
   },
   {
     id: "archive-audiobooks",
     title: "Internet Archive Audiobooks",
-    desc: "Large collection of free audiobooks and spoken word recordings.",
+    desc: "Large free audiobook and spoken word collection.",
     category: "audiobooks",
     source: "Archive.org",
     url: "https://archive.org/details/audio_bookspoetry",
+    type: "link",
     icon: "📖",
-    badge: "Free"
+    badge: "Free",
+    playable: false
   },
+
+  // ========== PODCASTS ==========
   {
-    id: "loyalbooks",
-    title: "Loyal Books",
-    desc: "Free public domain audiobooks and ebooks. Clean interface.",
-    category: "audiobooks",
-    source: "Loyal Books",
-    url: "https://www.loyalbooks.com",
-    icon: "📖",
-    badge: "Classics"
+    id: "podcast-index",
+    title: "Podcast Index",
+    desc: "Open podcast directory — discover free podcasts.",
+    category: "podcasts",
+    source: "Podcast Index",
+    url: "https://podcastindex.org",
+    type: "link",
+    icon: "🎙",
+    badge: "Open",
+    playable: false
   },
 
   // ========== IMAGES ==========
   {
     id: "unsplash",
     title: "Unsplash",
-    desc: "Beautiful free high-resolution photos. Free for almost any use.",
+    desc: "Beautiful free high-resolution photos.",
     category: "images",
     source: "Unsplash",
     url: "https://unsplash.com",
+    type: "link",
     icon: "🖼",
-    badge: "Free Photos"
+    badge: "Free Photos",
+    playable: false
   },
   {
     id: "pixabay",
     title: "Pixabay",
-    desc: "Free images, illustrations, vectors and videos. No attribution required on most.",
+    desc: "Free images, illustrations and videos.",
     category: "images",
     source: "Pixabay",
     url: "https://pixabay.com",
+    type: "link",
     icon: "🖼",
-    badge: "Free"
-  },
-  {
-    id: "pexels",
-    title: "Pexels",
-    desc: "High quality free stock photos and videos from talented creators.",
-    category: "images",
-    source: "Pexels",
-    url: "https://www.pexels.com",
-    icon: "🖼",
-    badge: "Free"
+    badge: "Free",
+    playable: false
   },
   {
     id: "wikimedia",
     title: "Wikimedia Commons",
-    desc: "Millions of freely usable media files. Images, video, audio — all free licenses.",
+    desc: "Millions of freely usable media files.",
     category: "images",
     source: "Wikimedia",
     url: "https://commons.wikimedia.org",
+    type: "link",
     icon: "🖼",
-    badge: "Free Media"
+    badge: "Free Media",
+    playable: false
   },
   {
     id: "openverse",
     title: "Openverse",
-    desc: "Search Creative Commons and public domain images, audio and more in one place.",
+    desc: "Search Creative Commons images, audio and more in one place.",
     category: "images",
     source: "Openverse",
     url: "https://openverse.org",
+    type: "link",
     icon: "🖼",
-    badge: "CC Search"
+    badge: "CC Search",
+    playable: false
   }
 ];
 
@@ -289,6 +366,7 @@ const mediaData = [
 let currentCategory = "all";
 let searchQuery = "";
 let favourites = JSON.parse(localStorage.getItem("freewave-favs") || "[]");
+let currentPlaying = null;
 
 // Elements
 const grid = document.getElementById("mediaGrid");
@@ -300,25 +378,38 @@ const searchClear = document.getElementById("searchClear");
 const sidebar = document.getElementById("sidebar");
 const menuBtn = document.getElementById("menuBtn");
 const toast = document.getElementById("toast");
+const player = document.getElementById("player");
+const audioEl = document.getElementById("audioEl");
+const playPauseBtn = document.getElementById("playPauseBtn");
+const stopBtn = document.getElementById("stopBtn");
+const playerTitle = document.getElementById("playerTitle");
+const playerSource = document.getElementById("playerSource");
+const playerIcon = document.getElementById("playerIcon");
+const videoModal = document.getElementById("videoModal");
+const videoFrame = document.getElementById("videoFrame");
+const modalTitle = document.getElementById("modalTitle");
+const modalClose = document.getElementById("modalClose");
+const modalBackdrop = document.getElementById("modalBackdrop");
 
-// Titles map
 const titles = {
   all: "All Free Media",
-  freetv: "Free TV Channels & Shows",
-  movies: "Free Movies",
-  music: "Free Music",
-  podcasts: "Free Podcasts",
-  audiobooks: "Free Audiobooks",
-  images: "Free Images & Photos",
+  playable: "Play Now (in-app)",
+  freetv: "Free TV (opens in browser)",
+  movies: "Movies",
+  music: "Music",
+  podcasts: "Podcasts",
+  audiobooks: "Audiobooks",
+  images: "Images & Photos",
   favourites: "Your Favourites"
 };
 
-// Render
 function render() {
   let items = mediaData;
 
   if (currentCategory === "favourites") {
     items = mediaData.filter(item => favourites.includes(item.id));
+  } else if (currentCategory === "playable") {
+    items = mediaData.filter(item => item.playable);
   } else if (currentCategory !== "all") {
     items = mediaData.filter(item => item.category === currentCategory);
   }
@@ -329,12 +420,12 @@ function render() {
       item.title.toLowerCase().includes(q) ||
       item.desc.toLowerCase().includes(q) ||
       item.source.toLowerCase().includes(q) ||
-      item.badge.toLowerCase().includes(q)
+      (item.badge && item.badge.toLowerCase().includes(q))
     );
   }
 
   sectionTitle.textContent = titles[currentCategory] || "Results";
-  resultCount.textContent = items.length ? `${items.length} source${items.length !== 1 ? "s" : ""}` : "";
+  resultCount.textContent = items.length ? `${items.length} item${items.length !== 1 ? "s" : ""}` : "";
 
   if (items.length === 0) {
     grid.innerHTML = "";
@@ -345,8 +436,9 @@ function render() {
   emptyState.hidden = true;
   grid.innerHTML = items.map(item => {
     const isFav = favourites.includes(item.id);
+    const cardClass = item.playable ? "card playable" : "card external";
     return `
-      <article class="card" data-id="${item.id}" data-url="${item.url}">
+      <article class="${cardClass}" data-id="${item.id}">
         <div class="card-image">
           <span class="card-badge">${item.badge}</span>
           ${item.icon}
@@ -356,7 +448,7 @@ function render() {
           <p class="card-desc">${item.desc}</p>
           <div class="card-footer">
             <span class="card-source">${item.source}</span>
-            <button class="fav-btn ${isFav ? "active" : ""}" data-id="${item.id}" title="${isFav ? "Remove from favourites" : "Add to favourites"}">
+            <button class="fav-btn ${isFav ? "active" : ""}" data-id="${item.id}" title="Favourite">
               ${isFav ? "♥" : "♡"}
             </button>
           </div>
@@ -365,22 +457,60 @@ function render() {
     `;
   }).join("");
 
-  // Card click → open source
   document.querySelectorAll(".card").forEach(card => {
     card.addEventListener("click", (e) => {
       if (e.target.closest(".fav-btn")) return;
-      const url = card.dataset.url;
-      window.open(url, "_blank", "noopener,noreferrer");
+      const id = card.dataset.id;
+      const item = mediaData.find(m => m.id === id);
+      if (!item) return;
+
+      if (item.playable) {
+        if (item.type === "video" && item.embed) {
+          openVideo(item);
+        } else if (item.type === "audio" && item.audio) {
+          playAudio(item);
+        } else {
+          window.open(item.url, "_blank", "noopener,noreferrer");
+        }
+      } else {
+        window.open(item.url, "_blank", "noopener,noreferrer");
+      }
     });
   });
 
-  // Fav buttons
   document.querySelectorAll(".fav-btn").forEach(btn => {
     btn.addEventListener("click", (e) => {
       e.stopPropagation();
       toggleFav(btn.dataset.id);
     });
   });
+}
+
+function playAudio(item) {
+  currentPlaying = item;
+  audioEl.src = item.audio;
+  audioEl.play().catch(() => showToast("Could not play — try another track"));
+  player.hidden = false;
+  document.body.classList.add("has-player");
+  playerTitle.textContent = item.title;
+  playerSource.textContent = item.source;
+  playerIcon.textContent = item.icon;
+  playPauseBtn.textContent = "⏸";
+  showToast("Playing: " + item.title);
+}
+
+function openVideo(item) {
+  modalTitle.textContent = item.title;
+  videoFrame.src = item.embed;
+  videoModal.hidden = false;
+  // Pause any audio
+  audioEl.pause();
+  playPauseBtn.textContent = "▶";
+}
+
+function closeVideo() {
+  videoFrame.src = "";
+  videoModal.hidden = true;
 }
 
 function toggleFav(id) {
@@ -407,6 +537,34 @@ function showToast(msg) {
   }, 2200);
 }
 
+// Player controls
+playPauseBtn.addEventListener("click", () => {
+  if (audioEl.paused) {
+    audioEl.play();
+    playPauseBtn.textContent = "⏸";
+  } else {
+    audioEl.pause();
+    playPauseBtn.textContent = "▶";
+  }
+});
+
+stopBtn.addEventListener("click", () => {
+  audioEl.pause();
+  audioEl.currentTime = 0;
+  audioEl.removeAttribute("src");
+  player.hidden = true;
+  document.body.classList.remove("has-player");
+  playPauseBtn.textContent = "▶";
+  currentPlaying = null;
+});
+
+audioEl.addEventListener("ended", () => {
+  playPauseBtn.textContent = "▶";
+});
+
+modalClose.addEventListener("click", closeVideo);
+modalBackdrop.addEventListener("click", closeVideo);
+
 // Navigation
 document.querySelectorAll(".nav-item").forEach(btn => {
   btn.addEventListener("click", () => {
@@ -414,7 +572,6 @@ document.querySelectorAll(".nav-item").forEach(btn => {
     btn.classList.add("active");
     currentCategory = btn.dataset.category;
     render();
-    // Close mobile sidebar
     sidebar.classList.remove("open");
     document.querySelector(".sidebar-overlay")?.classList.remove("visible");
   });
@@ -461,11 +618,6 @@ menuBtn.addEventListener("click", () => {
   overlay.classList.toggle("visible", sidebar.classList.contains("open"));
 });
 
-// Theme toggle (simple dark only for now — keeps the purple vibe)
-document.getElementById("themeToggle").addEventListener("click", () => {
-  showToast("Dark theme locked in for the best vibe ✨");
-});
-
 // Init
 render();
-console.log("FreeWave ready — legal free media only");
+console.log("FreeWave v2 ready — more playable content");

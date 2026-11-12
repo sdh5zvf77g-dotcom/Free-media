@@ -496,3 +496,179 @@ body {
 .sidebar-overlay.visible {
   display: block;
 }
+
+/* ========== PLAYER ========== */
+.player {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  height: 72px;
+  background: linear-gradient(90deg, #1a0a3c, #2e1065);
+  border-top: 1px solid rgba(168, 85, 247, 0.35);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 20px;
+  z-index: 150;
+  box-shadow: 0 -8px 30px rgba(0, 0, 0, 0.45);
+}
+
+.player-info {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  min-width: 0;
+  flex: 1;
+}
+
+.player-icon {
+  width: 44px;
+  height: 44px;
+  border-radius: 10px;
+  background: rgba(168, 85, 247, 0.25);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.3rem;
+  flex-shrink: 0;
+}
+
+.player-meta {
+  min-width: 0;
+}
+
+.player-title {
+  font-weight: 600;
+  font-size: 0.95rem;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.player-source {
+  font-size: 0.78rem;
+  color: var(--text-muted);
+}
+
+.player-controls {
+  display: flex;
+  gap: 8px;
+  flex-shrink: 0;
+}
+
+.player-btn {
+  width: 42px;
+  height: 42px;
+  border-radius: 50%;
+  border: none;
+  background: rgba(168, 85, 247, 0.3);
+  color: white;
+  font-size: 1rem;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: background 0.2s;
+}
+
+.player-btn:hover {
+  background: var(--accent);
+}
+
+/* ========== VIDEO MODAL ========== */
+.modal {
+  position: fixed;
+  inset: 0;
+  z-index: 300;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 20px;
+}
+
+.modal[hidden] {
+  display: none;
+}
+
+.modal-backdrop {
+  position: absolute;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.8);
+  backdrop-filter: blur(6px);
+}
+
+.modal-content {
+  position: relative;
+  background: #140a28;
+  border-radius: 16px;
+  width: min(960px, 100%);
+  max-height: 90vh;
+  overflow: hidden;
+  border: 1px solid rgba(168, 85, 247, 0.3);
+  box-shadow: 0 20px 60px rgba(0, 0, 0, 0.6);
+}
+
+.modal-close {
+  position: absolute;
+  top: 12px;
+  right: 14px;
+  z-index: 10;
+  background: rgba(0, 0, 0, 0.6);
+  border: none;
+  color: white;
+  width: 36px;
+  height: 36px;
+  border-radius: 50%;
+  font-size: 1.4rem;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.modal-title {
+  padding: 16px 20px 8px;
+  font-weight: 600;
+  font-size: 1.05rem;
+}
+
+.video-wrap {
+  position: relative;
+  padding-bottom: 56.25%;
+  height: 0;
+  background: #000;
+}
+
+.video-wrap iframe {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  border: none;
+}
+
+/* Playable card highlight */
+.card.playable .card-badge {
+  background: linear-gradient(135deg, #a855f7, #7c3aed);
+}
+
+.card.external .card-badge {
+  background: rgba(0, 0, 0, 0.55);
+}
+
+/* Make room for player */
+body.has-player .main {
+  padding-bottom: 80px;
+}
+
+@media (max-width: 860px) {
+  .player {
+    padding: 0 12px;
+    height: 68px;
+  }
+  .player-title {
+    font-size: 0.88rem;
+  }
+}
